@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Post a Skill</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    input {
+      margin: 10px 0;
+      padding: 10px;
+      width: 80%;
+    }
+    .match-result {
+      margin-top: 20px;
+      background-color: #e9e9e9;
+      padding: 15px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Post Your Skill</h2>
+    <form id="skillForm">
+      <input type="text" id="name" placeholder="Your Name" required /><br />
+      <input type="text" id="offerSkill" placeholder="Skill You Can Teach" required /><br />
+      <input type="text" id="learnSkill" placeholder="Skill You Want to Learn" required /><br />
+      <button type="submit" class="btn">Submit</button>
+    </form>
+
+    <div id="matchDisplay"></div>
+  </div>
+
+  <script>
+    document.getElementById("skillForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const offer = document.getElementById("offerSkill").value.trim();
+      const learn = document.getElementById("learnSkill").value.trim();
+
+      const user = { name, offer, learn };
+
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+      users.push(user);
+      localStorage.setItem("users", JSON.stringify(users));
+      this.reset();
+
+      const matchDisplay = document.getElementById("matchDisplay");
+      matchDisplay.innerHTML = ""; // Clear previous results
+
+      const matches = users.filter(u =>
+        u.offer.toLowerCase() === learn.toLowerCase() && u.name !== name
+      );
+
+      if (matches.length > 0) {
+        matchDisplay.innerHTML = "<h3>We found someone for you!</h3>";
+        matches.forEach(m => {
+          const div = document.createElement("div");
+          div.classList.add("match-result");
+          div.innerHTML = `
+            <strong>${m.name}</strong><br/>
+            Can teach: ${m.offer}<br/>
+            Wants to learn: ${m.learn}<br/>
+            <button class="btn">Connect</button>
+          `;
+          matchDisplay.appendChild(div);
+        });
+      } else {
+        matchDisplay.innerHTML = "<p>No matching mentors found right now. Your skill has been posted!</p>";
+      }
+    });
+  </script>
+</body>
+</html>
