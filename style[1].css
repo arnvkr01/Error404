@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  label {
+    display: block;
+    margin-top: 15px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    box-sizing: border-box;
+  }
+  
+  .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .match-result {
+    background-color: #e9ecef;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 5px;
+  }
+  
+  .badge {
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    display: inline-block;/* General styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    
+    h1, h2, h3 {
+      color: #333;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      color: #666;
+    }
+    
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    input {
+      margin: 10px 0;
+      padding: 10px;
+      width: 80%;
+    }
+    
+    /* Matches and Stats */
+    .match-result, .skill-stats {
+      margin-top: 20px;
+      background-color: #e9e9e9;
+      padding: 15px;
+      border-radius: 5px;
+      text-align: left;
+    }
+    
+    .badge {
+      display: inline-block;
+      background-color: #28a745;
+      color: white;
+      padding: 5px 10px;
+      margin-top: 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+    margin-top: 10px;
+    border-radius: 5px;
+  }
